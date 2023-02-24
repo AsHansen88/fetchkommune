@@ -2,10 +2,10 @@ console.log("Jeg er i dropdown")
 
 const fruits = []
 
-fruits.push({"name": "æble", "Style":"fruit"})
-fruits.push({"name" : "pære", "Style": "fruits"})
-fruits.push({"name" : "peanut", "Style": "notfruits"})
-fruits.push({"name" : "appelsin", "Style": "fruits"})
+fruits.push({"id": 1, "name": "æble", "Style":"fruit"})
+fruits.push({"id": 2, "name" : "pære", "Style": "fruits"})
+fruits.push({"id": 3, "name" : "peanut", "Style": "notfruits"})
+fruits.push({"id": 4, "name" : "appelsin", "Style": "fruits"})
 
 console.log(fruits)
 
@@ -18,10 +18,23 @@ function addfruitToDropdown(item){
     const el = document.createElement("option")
     el.textContent = item.name
     ddFruits.appendChild(el)
+    //el.value = item.id , put primarykey i value
+    el.item = item // why not put object in value
+
 }
 
 function filedropdown(){
     fruits.forEach(addfruitToDropdown)
 }
 
+function selectfruit(){
+    const selindex = ddFruits.selectedIndex
+    const selectedfruit = ddFruits.options[selindex]
+    console.log(selindex)
+    console.log(selectedfruit)
+    console.log(selectedfruit.value)
+
+}
+
 Pbfiledropdown.addEventListener('click', filedropdown)
+ddFruits.addEventListener('change', selectfruit)
