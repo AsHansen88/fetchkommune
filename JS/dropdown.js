@@ -20,6 +20,7 @@ function addfruitToDropdown(item){
     ddFruits.appendChild(el)
     //el.value = item.id , put primarykey i value
     el.item = item // why not put object in value
+    el.className = item.style
 
 }
 
